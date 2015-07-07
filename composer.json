@@ -1,0 +1,11 @@
+{
+	"name" : "CHGLongStone/mysql-db-sync",
+	"description" : "db-sync forked from https://sites.google.com/site/snarkysday/tools/mysql-db-sync",
+	"license" : "GNU",
+	"keywords" : [
+		"database",
+		"syncronization",
+		"just-core"
+	],
+	"version" : "v0.0.2",
+}
