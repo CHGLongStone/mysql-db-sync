@@ -4,7 +4,7 @@
 # See Usage statement for more information.
 #
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-source $DIR/getExcltables.sh
+source $DIR/getExclusionTables.sh
 
 
 

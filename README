@@ -1,12 +1,17 @@
-20100821 Xavier Snark xssnark@gmail.com
+20100821 Xavier Snark xssnark@gmail.com  https://sites.google.com/site/snarkysday/tools/mysql-db-sync
+original project
+forked: 
+20140707 Jason Medland jason.medland@gmail.com https://github.com/CHGLongStone/mysql-db-sync
+minor tweaks, added support for innodb
+
 
 This is taken from the usage statement. Please refer to the usage statement for the 
 most comprehensive and up to date information.
 
-
+#Description
 A simple, limited shell script for synchronizing MySQL databases between servers.
 This script uses my.cnf defaults files for managing the migration of data between the source
-and destination databases. An example defaults file mmay contain:
+and destination databases. An example defaults file may contain:
 
 	[client]
 	host=your_db_hostname
@@ -22,9 +27,9 @@ Call this script with these config files as arguments, for example:
 
 Note this command would operate in dry-run mode and not actually perform any operations.
 
-Required Arguments:
--s or --source-config my.cnf-file
--d or --destination-config my.cnf-file
+##Required Arguments:
+-s or --source-config my.[dbname].cnf-file
+-d or --destination-config my.dbname].cnf-file
 	This is to specify a source and destination my.cnf file. This must be used to pass username,
 	password, host, and database settings for accessing the servers.
 Optional Arguments
@@ -47,3 +52,21 @@ Optional Arguments
 --dry-run
 	Don't perform the cleaning, dump, or import operations.
 	
+	
+##Other Settings
+
+####skiplist
+a list of tables to ignore in the format `[table_name] [...]`
+```
+table1 table2 table3
+```
+must appear on one line single space/tab between entries
+
+
+
+##Do a dry run
+-v  --dump-database JCORE -n -s my.dev.cnf -d my.prod.cnf
+-v --dump-database JCORE -s my.dev.cnf -d my.prod.cnf
+./mysql-db-sync.sh -v --dump-database JCORE -s my.dev.cnf -d my.prod.cnf  
+./mysql-db-sync.sh -v --dump-database JCORE -s my.prod.cnf -d my.dev.cnf  
+./mysql-db-sync.sh -v --dump-database JCORE -s my.prod.cnf -d my.dev.cnf  
